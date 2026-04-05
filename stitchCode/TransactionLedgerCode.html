@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-primary": "#5d5f5f",
+                        "on-tertiary": "#00174b",
+                        "error-container": "#93000a",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#000000",
+                        "secondary-fixed": "#c8c6c5",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#c6c6c7",
+                        "on-tertiary-container": "#000000",
+                        "tertiary": "#dbe1ff",
+                        "surface-container-highest": "#353534",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-container": "#d4d4d4",
+                        "on-tertiary-fixed-variant": "#dbe1ff",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-primary-fixed-variant": "#e2e2e2",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed": "#ffffff",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#313030",
+                        "on-surface-variant": "#c6c6c6",
+                        "secondary": "#c8c6c5",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed-dim": "#adabaa",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#003ea8",
+                        "surface-variant": "#353534",
+                        "on-secondary-container": "#e5e2e1",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "secondary-container": "#474746",
+                        "primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3c3b3b",
+                        "tertiary-fixed": "#0053db",
+                        "primary-fixed-dim": "#454747",
+                        "surface": "#131313",
+                        "on-background": "#e5e2e1",
+                        "background": "#131313",
+                        "on-secondary": "#1c1b1b",
+                        "outline": "#919191",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#5d5f5f",
+                        "outline-variant": "#474747",
+                        "on-error": "#690005",
+                        "on-primary": "#1a1c1c",
+                        "tertiary-container": "#618bff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            width: 1em;
+            height: 1em;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .admin-only { display: flex; }
+        .viewer-mode .admin-only { display: none; }
+    </style>
+</head>
+<body class="antialiased" id="app-root">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-[#474747]/15 bg-[#131313] font-['Inter'] antialiased tracking-tight shadow-[20px_0_40px_rgba(0,0,0,0.2)] flex flex-col py-8 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-bold tracking-tighter text-white">Obsidian</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-medium mt-1">Wealth Management</p>
+</div>
+<nav class="space-y-1 flex-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-[#c6c6c6] hover:text-white transition-colors hover:bg-[#201f1f] rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-white font-semibold border-r-2 border-white bg-[#201f1f] rounded-l-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="text-sm">Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-[#c6c6c6] hover:text-white transition-colors hover:bg-[#201f1f] rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="text-sm font-medium">Insights</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-[#c6c6c6] hover:text-white transition-colors hover:bg-[#201f1f] rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mb-6 px-2">
+<p class="text-[10px] uppercase tracking-[0.15em] text-on-surface-variant font-bold mb-3">System Access</p>
+<div class="bg-surface-container-low border border-outline-variant/20 rounded-xl p-1 flex items-center">
+<button class="flex-1 text-[10px] font-bold py-2 rounded-lg transition-all bg-transparent text-on-surface-variant hover:text-white" id="viewer-btn" onclick="setRole('viewer')">VIEWER</button>
+<button class="flex-1 text-[10px] font-bold py-2 rounded-lg transition-all bg-white text-black" id="admin-btn" onclick="setRole('admin')">ADMIN</button>
+</div>
+</div>
+<div class="mt-auto px-2 pt-4 border-t border-outline-variant/15 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/20">
+<img alt="Architect User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwOR1sv1AcT72LmdmtRHbaf86a8dnxiEE90sJVMjZCk6g02A4Qmi3fphhsBpelPxW9no5bFSoJX94BmZgKtaZOYdUceNHGN6piMsAJvnicJ0cUP7HDVZUgpuYwj75b2XTvia_bptv0JZhxJAxrv_z9d0ySwxrNFeUpMD5D4zhJbfvtoRALdZWVcMrl8YTFW1rza66V4qAUZnym_W72Fs8KIfrgu-eweIEMUtqmZAjhnPyRiKG4uOFXhPyZM1aLP73eKRMXTTY_qfk-"/>
+</div>
+<div>
+<p class="text-xs font-semibold text-white">Alexander Vogel</p>
+<p class="text-[10px] text-on-surface-variant">Principal Architect</p>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 border-b border-[#474747]/15 z-40 bg-[#131313]/80 backdrop-blur-xl flex justify-between items-center px-8 ml-64 font-['Inter'] font-medium">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/15 rounded-xl py-1.5 pl-10 pr-4 text-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-white/20 transition-all placeholder:text-on-surface-variant/50" id="transactionSearch" placeholder="Search by description or category..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-[#c6c6c6] hover:bg-[#353534]/50 rounded-xl transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-[#c6c6c6] hover:bg-[#353534]/50 rounded-xl transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 pb-12 px-10 min-h-screen bg-surface">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-bold tracking-tight text-white mb-1">Transaction Ledger</h2>
+<p class="text-on-surface-variant text-sm">Institutional capital flows and resource allocation.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high text-white border border-outline-variant/20 rounded-xl text-sm font-medium hover:bg-surface-container-highest transition-all group active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] group-hover:translate-y-0.5 transition-transform">download</span>
+                    Export
+                </button>
+<button class="admin-only items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-xl text-sm font-semibold shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:bg-primary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    New Entry
+                </button>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-surface-container-low border border-outline-variant/15 rounded-xl p-4 mb-8 flex flex-wrap items-end gap-4">
+<div class="flex-1 min-w-[180px]">
+<label class="block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1.5 ml-1">Type</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant/15 rounded-lg py-2 px-3 text-sm appearance-none focus:ring-1 focus:ring-primary/20 cursor-pointer" id="filterType">
+<option value="all">All Types</option>
+<option value="income">Income</option>
+<option value="expense">Expense</option>
+</select>
+</div>
+<div class="flex-1 min-w-[180px]">
+<label class="block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1.5 ml-1">Category</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant/15 rounded-lg py-2 px-3 text-sm appearance-none focus:ring-1 focus:ring-primary/20 cursor-pointer" id="filterCategory">
+<option value="all">All Categories</option>
+<option value="saas">SaaS &amp; Infra</option>
+<option value="travel">Travel</option>
+<option value="service">Services</option>
+<option value="internal">Internal</option>
+</select>
+</div>
+<div class="flex-1 min-w-[180px]">
+<label class="block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1.5 ml-1">Sort By</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant/15 rounded-lg py-2 px-3 text-sm appearance-none focus:ring-1 focus:ring-primary/20 cursor-pointer" id="sortBy">
+<option value="newest">Newest First</option>
+<option value="amount-desc">Amount: High to Low</option>
+<option value="amount-asc">Amount: Low to High</option>
+</select>
+</div>
+<div class="h-[38px]">
+<button class="px-4 py-2 text-on-surface-variant hover:text-white transition-colors text-sm font-medium" onclick="resetFilters()">
+                    Reset Filters
+                </button>
+</div>
+</div>
+<!-- Data Table Card -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-outline-variant/5">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/30">
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant border-b border-outline-variant/10">Date</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant border-b border-outline-variant/10">Description</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant border-b border-outline-variant/10">Category</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant border-b border-outline-variant/10">Type</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-on-surface-variant border-b border-outline-variant/10 text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10" id="transactionBody">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high transition-all group cursor-pointer" data-category="saas" data-type="expense">
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 24, 2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">cloud</span>
+</div>
+<span class="text-sm font-semibold text-white">Amazon Web Services</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-[10px] font-bold uppercase tracking-wider text-tertiary shadow-[inset_0_0_2px_rgba(255,255,255,0.1)]">SaaS</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-error">arrow_outward</span>
+                                Expense
+                            </span>
+</td>
+<td class="px-6 py-5 text-right font-mono text-sm font-medium text-white">-$1,240.00</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high transition-all group cursor-pointer" data-category="travel" data-type="expense">
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 23, 2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">flight</span>
+</div>
+<span class="text-sm font-semibold text-white">Lufthansa Group</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-[10px] font-bold uppercase tracking-wider text-tertiary shadow-[inset_0_0_2px_rgba(255,255,255,0.1)]">Travel</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-error">arrow_outward</span>
+                                Expense
+                            </span>
+</td>
+<td class="px-6 py-5 text-right font-mono text-sm font-medium text-white">-$3,450.20</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high transition-all group cursor-pointer" data-category="service" data-type="income">
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 22, 2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<span class="text-sm font-semibold text-white">Invoiced: Aris Corp</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-[10px] font-bold uppercase tracking-wider text-tertiary shadow-[inset_0_0_2px_rgba(255,255,255,0.1)]">Service</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-emerald-500">subdirectory_arrow_right</span>
+                                Income
+                            </span>
+</td>
+<td class="px-6 py-5 text-right font-mono text-sm font-bold text-tertiary-container">+$12,000.00</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-high transition-all group cursor-pointer" data-category="internal" data-type="expense">
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 18, 2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">account_balance</span>
+</div>
+<span class="text-sm font-semibold text-white">Tax Reserve Transfer</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-[10px] font-bold uppercase tracking-wider text-tertiary shadow-[inset_0_0_2px_rgba(255,255,255,0.1)]">Internal</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-error">arrow_outward</span>
+                                Expense
+                            </span>
+</td>
+<td class="px-6 py-5 text-right font-mono text-sm font-medium text-white">-$5,000.00</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-high transition-all group cursor-pointer" data-category="saas" data-type="expense">
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 15, 2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</div>
+<span class="text-sm font-semibold text-white">GitHub Enterprise</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-[10px] font-bold uppercase tracking-wider text-tertiary shadow-[inset_0_0_2px_rgba(255,255,255,0.1)]">SaaS</span>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-error">arrow_outward</span>
+                                Expense
+                            </span>
+</td>
+<td class="px-6 py-5 text-right font-mono text-sm font-medium text-white">-$450.00</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-highest/10 flex justify-between items-center border-t border-outline-variant/10">
+<p class="text-xs text-on-surface-variant">Showing <span class="text-white font-medium" id="visibleCount">5</span> of 148 transactions</p>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded flex items-center justify-center border border-outline-variant/20 hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center bg-white text-on-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded flex items-center justify-center border border-outline-variant/20 hover:bg-surface-container-high transition-colors text-on-surface-variant text-xs">2</button>
+<button class="w-8 h-8 rounded flex items-center justify-center border border-outline-variant/20 hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Summary Grid -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="col-span-1 md:col-span-2 bg-surface-container-low border border-outline-variant/15 rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-6">Net Cash Flow</h4>
+<div class="flex items-end gap-6">
+<div>
+<p class="text-3xl font-bold text-white">+$42,850.00</p>
+<p class="text-xs text-emerald-500 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            12.4% vs last month
+                        </p>
+</div>
+<div class="flex-1 h-12 flex items-end gap-1 pb-1">
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[30%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[45%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[35%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[60%]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[80%]"></div>
+<div class="flex-1 bg-tertiary-container rounded-t-sm h-[100%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/15 rounded-xl p-6 flex flex-col justify-between">
+<div>
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-4">Largest Category</h4>
+<p class="text-xl font-semibold text-white">SaaS Infrastructure</p>
+<p class="text-xs text-on-surface-variant mt-1">32% of total spend</p>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/10">
+<div class="flex justify-between items-center mb-1.5">
+<span class="text-[10px] text-on-surface-variant">Budget Utilization</span>
+<span class="text-[10px] text-white">78%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[78%]"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Role Handling
+        function setRole(role) {
+            const root = document.getElementById('app-root');
+            const adminBtn = document.getElementById('admin-btn');
+            const viewerBtn = document.getElementById('viewer-btn');
+            
+            if (role === 'admin') {
+                root.classList.remove('viewer-mode');
+                adminBtn.className = 'flex-1 text-[10px] font-bold py-2 rounded-lg transition-all bg-white text-black';
+                viewerBtn.className = 'flex-1 text-[10px] font-bold py-2 rounded-lg transition-all bg-transparent text-on-surface-variant hover:text-white';
+            } else {
+                root.classList.add('viewer-mode');
+                viewerBtn.className = 'flex-1 text-[10px] font-bold py-2 rounded-lg transition-all bg-white text-black';
+                adminBtn.className = 'flex-1 text-[10px] font-bold py-2 rounded-lg transition-all bg-transparent text-on-surface-variant hover:text-white';
+            }
+        }
+
+        // Search and Filtering Simulation
+        const searchInput = document.getElementById('transactionSearch');
+        const filterType = document.getElementById('filterType');
+        const filterCategory = document.getElementById('filterCategory');
+        const transactionRows = document.querySelectorAll('#transactionBody tr');
+        const visibleCountText = document.getElementById('visibleCount');
+
+        function updateFilters() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const type = filterType.value;
+            const category = filterCategory.value;
+            
+            let visibleCount = 0;
+
+            transactionRows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                const rowType = row.dataset.type;
+                const rowCategory = row.dataset.category;
+
+                const matchesSearch = text.includes(searchTerm);
+                const matchesType = type === 'all' || rowType === type;
+                const matchesCategory = category === 'all' || rowCategory === category;
+
+                if (matchesSearch && matchesType && matchesCategory) {
+                    row.style.display = 'table-row';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            visibleCountText.textContent = visibleCount;
+        }
+
+        function resetFilters() {
+            searchInput.value = '';
+            filterType.value = 'all';
+            filterCategory.value = 'all';
+            updateFilters();
+        }
+
+        searchInput.addEventListener('input', updateFilters);
+        filterType.addEventListener('change', updateFilters);
+        filterCategory.addEventListener('change', updateFilters);
+
+    </script>
+</body></html>
