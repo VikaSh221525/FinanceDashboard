@@ -16,10 +16,11 @@ export function Sidebar() {
   ];
 
   return (
-    <aside className="h-screen w-64 fixed left-0 top-0 border-r border-outline-variant/15 flex flex-col py-8 px-4 bg-[#131313] shadow-[20px_0_40px_rgba(0,0,0,0.2)] z-50">
+    <>
+      <aside className="hidden md:flex h-screen w-64 fixed left-0 top-0 border-r border-outline-variant/15 flex-col py-8 px-4 bg-[#131313] shadow-[20px_0_40px_rgba(0,0,0,0.2)] z-50">
       <div className="mb-10 px-4">
-        <h1 className="text-xl font-bold tracking-tighter text-white">
-          Obsidian
+        <h1 className="text-2xl font-bold tracking-wide text-white">
+          Zorvyn
         </h1>
         <p className="text-xs text-on-surface-variant tracking-widest uppercase mt-1">
           Wealth Management
@@ -93,6 +94,27 @@ export function Sidebar() {
           <p className="text-xs text-on-surface-variant truncate">Lead Architect</p>
         </div>
       </div>
-    </aside>
+      </aside>
+
+      {/* Mobile Bottom Nav */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-[#131313]/90 backdrop-blur-xl border-t border-outline-variant/15 flex items-center justify-around z-50 px-2">
+        {links.map((link) => {
+          const isActive = pathname === link.href;
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={clsx(
+                "flex flex-col items-center justify-center w-full h-full gap-1 transition-colors",
+                isActive ? "text-white" : "text-on-surface-variant"
+              )}
+            >
+              <span className="material-symbols-outlined text-[20px]">{link.icon}</span>
+              <span className="text-[10px] font-medium">{link.label}</span>
+            </Link>
+          );
+        })}
+      </nav>
+    </>
   );
 }

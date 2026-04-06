@@ -135,9 +135,9 @@ export default function TransactionLedger() {
   );
 
   return (
-    <div className="max-w-7xl mx-auto p-8 space-y-8">
+    <div className="max-w-7xl mx-auto p-4 md:p-8 space-y-6 md:space-y-8">
       {/* Header Section */}
-      <div className="flex justify-between items-end mb-8">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
         <div>
           <h2 className="text-3xl font-bold tracking-tight text-white mb-1">
             Transaction Ledger
@@ -245,8 +245,8 @@ export default function TransactionLedger() {
       </div>
 
       {/* Filter Bar */}
-      <div className="bg-surface-container-low border border-outline-variant/15 rounded-xl p-4 flex flex-wrap items-end gap-4">
-        <div className="flex-1 min-w-[220px]">
+      <div className="bg-surface-container-low border border-outline-variant/15 rounded-xl p-4 flex flex-col md:flex-row flex-wrap items-stretch md:items-end gap-4">
+        <div className="flex-1 min-w-0 md:min-w-[220px]">
            <label className="block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1.5 ml-1">Search</label>
            <input
              type="text"
@@ -301,7 +301,7 @@ export default function TransactionLedger() {
             <option value="amount-asc">Amount: Low to High</option>
           </select>
         </div>
-        <div className="h-[38px]">
+        <div className="h-[38px] mt-2 md:mt-0">
           <button
             onClick={resetFilters}
             className="px-4 py-2 text-on-surface-variant hover:text-white transition-colors text-sm font-medium h-full"

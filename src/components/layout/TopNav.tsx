@@ -6,7 +6,7 @@ export function TopNav() {
   const { role } = useStore();
 
   return (
-    <header className="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 border-b border-outline-variant/15 z-40 bg-[#131313]/80 backdrop-blur-xl flex justify-between items-center px-8 ml-64">
+    <header className="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 border-b border-outline-variant/15 z-40 bg-[#131313]/90 backdrop-blur-xl flex justify-between items-center px-4 md:px-8 md:ml-64">
       <div className="flex items-center gap-4 flex-1 max-w-md">
         <div className="relative w-full group">
           <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">

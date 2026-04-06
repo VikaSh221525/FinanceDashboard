@@ -27,7 +27,7 @@ export default function DashboardOverview() {
   const totalBalance = baseBalance + totalIncome - totalExpense;
 
   return (
-    <div className="max-w-7xl mx-auto p-8 space-y-8">
+    <div className="max-w-7xl mx-auto p-4 md:p-8 space-y-6 md:space-y-8">
       {/* Hero Header */}
       <section className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
@@ -35,7 +35,7 @@ export default function DashboardOverview() {
             Dashboard Overview
           </h2>
           <p className="text-on-surface-variant mt-1">
-            Real-time financial synthesis for Obsidian Wealth.
+            Real-time financial synthesis for Zorvyn Wealth.
           </p>
         </div>
         <div className="flex gap-2">

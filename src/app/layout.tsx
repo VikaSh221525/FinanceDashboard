@@ -31,7 +31,7 @@ export default function RootLayout({
       <body suppressHydrationWarning className={`${inter.variable} font-sans antialiased bg-background text-foreground transition-colors duration-300`}>
         <Sidebar />
         <TopNav />
-        <main className="ml-64 pt-16 min-h-screen bg-[#131313]">
+        <main className="md:ml-64 pt-16 pb-20 md:pb-0 min-h-screen bg-[#131313]">
           {children}
         </main>
       </body>
