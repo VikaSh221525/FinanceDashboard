@@ -13,6 +13,7 @@ export function Sidebar() {
     { href: "/", label: "Overview", icon: "dashboard" },
     { href: "/transactions", label: "Transactions", icon: "payments" },
     { href: "/insights", label: "Insights", icon: "analytics" },
+    { href: "/settings", label: "Settings", icon: "settings" },
   ];
 
   return (
@@ -46,11 +47,6 @@ export function Sidebar() {
             </Link>
           );
         })}
-        {/* Settings is unlinked for now */}
-        <button className="flex items-center gap-3 w-full px-4 py-3 text-[#c6c6c6] hover:text-white hover:bg-[#201f1f] rounded-lg transition-all duration-200">
-          <span className="material-symbols-outlined">settings</span>
-          <span className="text-sm">Settings</span>
-        </button>
       </nav>
 
       {/* Role Based UI Toggle */}
