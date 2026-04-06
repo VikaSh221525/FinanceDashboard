@@ -177,7 +177,7 @@ export default function DashboardOverview() {
                   <Tooltip 
                     contentStyle={{ backgroundColor: '#2a2a2a', border: '1px solid #474747', borderRadius: '8px', color: '#fff' }}
                     itemStyle={{ color: '#fff' }}
-                    formatter={(value: number) => [`$${value.toLocaleString()}`, "Balance"]}
+                    formatter={(value: any) => [`$${Number(value || 0).toLocaleString()}`, "Balance"]}
                   />
                   <Area type="monotone" dataKey="balance" stroke="#ffffff" strokeWidth={2} fillOpacity={1} fill="url(#colorBalance)" />
                 </AreaChart>
