@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Obsidian Wealth Management",
-  description: "Financial Dashboard for Obsidian Wealth",
+  title: "Zorvyn finance Management",
+  description: "Financial Dashboard for Zorvyn Finance",
 };
 
 import { Sidebar } from "@/components/layout/Sidebar";

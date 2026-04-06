@@ -35,7 +35,7 @@ export default function DashboardOverview() {
             Dashboard Overview
           </h2>
           <p className="text-on-surface-variant mt-1">
-            Real-time financial synthesis for Zorvyn Wealth.
+            Real-time financial synthesis for Zorvyn Finance.
           </p>
         </div>
         <div className="flex gap-2">

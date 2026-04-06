@@ -1,0 +1,26 @@
+
+> zorvyn@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.9
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 30.6s
+   Linting and checking validity of types ...
+Failed to compile.
+
+./src/app/page.tsx:180:21
+Type error: Type '(value: number) => [string, string]' is not assignable to type 'Formatter<ValueType, NameType> & ((value: ValueType, name: NameType, item: TooltipPayloadEntry, index: number, payload: TooltipPayload) => ReactNode | [...])'.
+  Type '(value: number) => [string, string]' is not assignable to type 'Formatter<ValueType, NameType>'.
+    Types of parameters 'value' and 'value' are incompatible.
+      Type 'ValueType | undefined' is not assignable to type 'number'.
+        Type 'undefined' is not assignable to type 'number'.
+
+[0m [90m 178 |[39m                     contentStyle[33m=[39m{{ backgroundColor[33m:[39m [32m'#2a2a2a'[39m[33m,[39m border[33m:[39m [32m'1px solid #474747'[39m[33m,[39m borderRadius[33m:[39m [32m'8px'[39m[33m,[39m color[33m:[39m [32m'#fff'[39m }}
+ [90m 179 |[39m                     itemStyle[33m=[39m{{ color[33m:[39m [32m'#fff'[39m }}
+[31m[1m>[22m[39m[90m 180 |[39m                     formatter[33m=[39m{(value[33m:[39m number) [33m=>[39m [[32m`$${value.toLocaleString()}`[39m[33m,[39m [32m"Balance"[39m]}
+ [90m     |[39m                     [31m[1m^[22m[39m
+ [90m 181 |[39m                   [33m/[39m[33m>[39m
+ [90m 182 |[39m                   [33m<[39m[33mArea[39m type[33m=[39m[32m"monotone"[39m dataKey[33m=[39m[32m"balance"[39m stroke[33m=[39m[32m"#ffffff"[39m strokeWidth[33m=[39m{[35m2[39m} fillOpacity[33m=[39m{[35m1[39m} fill[33m=[39m[32m"url(#colorBalance)"[39m [33m/[39m[33m>[39m
+ [90m 183 |[39m                 [33m<[39m[33m/[39m[33mAreaChart[39m[33m>[39m[0m
+Next.js build worker exited with code: 1 and signal: null
